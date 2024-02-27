@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="d-flex flex-wrap gap-3">
+        <div *ngFor="let pokemon of pokemons" class="pkmn-card">
+            <div class="bg-pokeball"></div>
+            <div class="card-content d-flex flex-column">
+                <div class="d-flex flex-row">
+                    <div class="card-title">
+                        <div class="card-tag">
+                            <p>{{pokemon.name | titlecase}}</p>
+                        </div>
+                        <div class="card-stats">
+                            <p>HT {{pokemon.height}}"</p>
+                            <p>WT {{pokemon.weight}} lbs.</p>
+                        </div>
+                    </div>
+                    <div class="sprite">
+                        <img src="{{pokemon.sprites.front_default}}" alt="sprite">
+                    </div>
+                </div>
+                <div class="pkmn-card-body">
+                    <div class="tags d-flex">
+                        <div class="type-tag" *ngFor="let type of pokemon.types">
+                            <span [style.background-color]="getBackgroundColor(type.type.name)">{{type.type.name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+            
+        </div>
+    </div>
+</div>
